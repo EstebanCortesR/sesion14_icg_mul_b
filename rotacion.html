@@ -2,12 +2,31 @@
     <script>
         function centroGeom(coordenada) {
             tr = [0, 0]
-
-            // ....
-
-            return tr;
+            veiX=coordenada [0], vesX=coordenada[0]
+            veiY=coordenada [1], vesY=coordenada[1]
+            
+            for (i = 2; i < coordenada.length; i += 2) {
+        if (veiY > coordenada[i]) {
+            veiY = coordenada[i];
         }
+        if (vesY < coordenada[i]) {
+            vesY = coordenada[i];
+        }
+    }
+    for (i = 2; i < coordenada.length; i += 2) {
+        if (veiX > coordenada[i]) {
+            veiX = coordenada[i];
+        }
+        if (vesX < coordenada[i]) {
+            vesX = coordenada[i];
+        }
+    }
 
+    pX = -(vesX + veiX) / 2;
+    pY = -(vesY + veiY) / 2;
+    tr = [pX, pY]
+    return tr; 
+           }
         function polygon(a, colorBorde, colorRelleno) {
             ctx.beginPath()
             ctx.strokeStyle = colorBorde
